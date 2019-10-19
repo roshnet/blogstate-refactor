@@ -67,3 +67,4 @@ env/
 
 # VSCode
 .vscode
+__pycache__/
