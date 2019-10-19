@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Blogstate | Blogging for students</title>
+	<meta charset="utf-8">
+	<meta name="description" content="A blogging platform for wannabe bloggers and writers."/>
+	<meta name="author" content="reprogram46@gmail.com"/>
+	<meta name="viewport" content="width=device-width,initial-scale-1.0,user-scalable=no"/>
+	<link rel="stylesheet" type="text/css" href="/static/css/bulma.min.css"/>
+</head>
+<body>
+
+<section class="hero is-dark is-fullheight is-bold">
+	<div class="hero-body has-text-centered">
+		<div class="container">
+			<h1 class="title is-2 is-spaced">
+				Let's write something great
+			</h1>
+			<h1 class="subtitle is-4">
+				BLOG <code class="has-text-info">STATE</code>
+			</h1>
+		</div>
+	</div>
+</section>
+
+
+<nav class="navbar is-info">
+	<div class="container">
+		<div class="navbar-brand">
+			<span class="navbar-burger burger" data-target="navMenu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
+		</div>
+		<div id="navMenu" class="navbar-menu">
+			<div class="navbar-end">
+				<a href="{{ url_for('signup') }}" class="navbar-item is-active">Sign Up</a>
+				<a href="{{ url_for('login') }}" class="navbar-item">Login</a>
+				<a href="#" class="navbar-item">Articles</a>
+			</div>
+		</div>
+	</div>
+</nav>
+
+
+<section class="section">
+	<div class="container">
+		<div class="section">
+			<h1 class="title is-spaced has-text-right is-2">
+				#start
+			</h1>
+			<h2 class="subtitle has-text-info has-text-right is-4">
+				Get straight to writing stuff. <a href=""><code>#write</code></a>
+			</h2>
+		</div>
+		<div class="section">
+			<h1 class="title is-spaced is-2">
+				#share
+			</h1>
+			<h2 class="subtitle has-text-info is-4">
+				Learn and teach what it takes
+				<br>
+				 to be a good writer.
+				<code>#learn</code>
+			</h2>
+		</div>
+		<div class="section">
+			<h1 class="title is-spaced has-text-right is-2">
+				#chat
+			</h1>
+			<h2 class="subtitle has-text-info has-text-right is-4">
+				Discuss things <code>#peertopeer</code>
+			</h2>
+		</div>
+		<div class="section">
+			<h1 class="title is-spaced is-2">
+				#roam
+			</h1>
+			<h2 class="subtitle has-text-info is-4">
+				Explore what's going on in the community
+			</h2>
+		</div>
+		<div class="section">
+			<h1 class="title is-spaced has-text-right is-2">
+				#remote <sup><code>(beta)</code></sup>
+			</h1>
+			<h2 class="subtitle has-text-info has-text-right is-4">
+				A CLI-tool for terminal lovers to post articles online,
+				<br>
+				from wherever they are.<code>#terminal</code>
+			</h2>
+		</div>
+	</div>
+</section>
+
+
+<section class="hero is-dark">
+		<div class="hero-body has-text-centered">
+			<footer>
+				<p class="subtitle is-6 is-spaced">This project is open-source.</p>
+				<p class="subtitle is-6 is-spaced">That means you can always improve it in your own ways!</p>
+				<hr style="width: 60% !important; margin-left: 20%;">
+				<a href="https://github.com/roshnet/blogstate">
+					<button class="button is-info is-outlined">Contribute</button>
+				</a>
+			</footer>
+		</div>
+	</section>
+
+</body>
+</html>
+ <script type="text/javascript">
+      (function() {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#' + burger.dataset.target);
+        burger.addEventListener('click', function(){
+          burger.classList.toggle('is-active');
+          nav.classList.toggle('is-active');
+        });
+      })();
+</script>
