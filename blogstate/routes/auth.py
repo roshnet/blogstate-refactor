@@ -8,4 +8,4 @@ def home():
 
 @app.route('/greet/<user>')
 def greet(user):
-    return f"hello, {user}"
+    return f"Hello, {user}"
