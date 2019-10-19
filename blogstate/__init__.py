@@ -2,4 +2,4 @@ import flask
 
 app = flask.Flask(__name__)
 
-from . import routes
+from blogstate import routes
