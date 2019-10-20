@@ -1,0 +1,4 @@
+static/* linguist-vendored
+templates/base.html linguist-vendored
+templates/layout.html linguist-vendored
+templates/home.html linguist-vendored
