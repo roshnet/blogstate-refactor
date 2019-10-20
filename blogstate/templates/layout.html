@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="A blogging platform for wannabe bloggers and writers."/>
+	<meta name="viewport" content="width=device-width,initial-scale-1.0,user-scalable=no"/>
+	<link rel="stylesheet" type="text/css" href="/static/css/bulma.min.css"/>
+    <title>
+        {% if title %}
+            {{ title }}
+        {% else %}
+            BlogState
+        {% endif %}
+    </title>
+</head>
+<body>
+
+
+<div>
+    {% block home %}{% endblock %}
+    {% block base %}{% endblock %}
+</div>
+
+
+<section class="hero is-dark">
+    <div class="hero-body has-text-centered">
+        <footer>
+            <p class="subtitle is-6 is-spaced">This project is open-source.</p>
+            <p class="subtitle is-6 is-spaced">That means you can always improve it in your own ways!</p>
+            <hr style="width: 60% !important; margin-left: 20%;">
+            <a href="https://github.com/roshnet/blogstate-refactor">
+                <button class="button is-info is-outlined">Contribute</button>
+            </a>
+        </footer>
+    </div>
+</section>
+
+</body>
+</html>
+    <script type="text/javascript">
+        (function() {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#' + burger.dataset.target);
+        burger.addEventListener('click', function(){
+            burger.classList.toggle('is-active');
+            nav.classList.toggle('is-active');
+        });
+        })();
+</script>

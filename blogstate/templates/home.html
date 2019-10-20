@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Blogstate | Blogging for students</title>
-	<meta charset="utf-8">
-	<meta name="description" content="A blogging platform for wannabe bloggers and writers."/>
-	<meta name="author" content="reprogram46@gmail.com"/>
-	<meta name="viewport" content="width=device-width,initial-scale-1.0,user-scalable=no"/>
-	<link rel="stylesheet" type="text/css" href="/static/css/bulma.min.css"/>
-</head>
-<body>
-
+{% extends "layout.html" %}
+{% block home %}
 <section class="hero is-dark is-fullheight is-bold">
 	<div class="hero-body has-text-centered">
 		<div class="container">
@@ -51,7 +41,7 @@
 				#start
 			</h1>
 			<h2 class="subtitle has-text-info has-text-right is-4">
-				Get straight to writing stuff. <a href=""><code>#write</code></a>
+				Get straight to writing stuff.<code>#write</code>
 			</h2>
 		</div>
 		<div class="section">
@@ -94,29 +84,4 @@
 	</div>
 </section>
 
-
-<section class="hero is-dark">
-		<div class="hero-body has-text-centered">
-			<footer>
-				<p class="subtitle is-6 is-spaced">This project is open-source.</p>
-				<p class="subtitle is-6 is-spaced">That means you can always improve it in your own ways!</p>
-				<hr style="width: 60% !important; margin-left: 20%;">
-				<a href="https://github.com/roshnet/blogstate">
-					<button class="button is-info is-outlined">Contribute</button>
-				</a>
-			</footer>
-		</div>
-	</section>
-
-</body>
-</html>
- <script type="text/javascript">
-      (function() {
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#' + burger.dataset.target);
-        burger.addEventListener('click', function(){
-          burger.classList.toggle('is-active');
-          nav.classList.toggle('is-active');
-        });
-      })();
-</script>
+{% endblock %}
