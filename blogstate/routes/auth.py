@@ -1,14 +1,19 @@
 from blogstate import app
-from flask import render_template
+from flask import (
+    render_template,
+    request
+)
 
 
 @app.route('/signin')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template("auth/login.html")
+    if request.method == 'GET':
+        return render_template("auth/login.html")
 
 
 @app.route('/join')
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template("auth/signup.html")
+    if request.method == 'GET':
+        return render_template("auth/signup.html")
