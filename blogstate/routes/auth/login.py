@@ -1,8 +1,11 @@
 from blogstate import app
+from blogstate.api import HOST
 from flask import (
     render_template,
     request
 )
+import os
+import requests
 
 
 @app.route('/signin')
@@ -16,3 +19,13 @@ def login():
     """
     if request.method == 'GET':
         return render_template("auth/login.html")
+
+    # On POST request #
+    payload = {
+        "username": request.form.get('username'),
+        "passwd": request.form.get('passwd')
+    }
+    endpoint = os.path.join(HOST, 'login')
+    auth_status = requests.post(endpoint, json=payload)
+
+    return auth_status.content
