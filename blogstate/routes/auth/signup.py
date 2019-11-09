@@ -1,8 +1,12 @@
 from blogstate import app
+from blogstate.api import SecureAgent
 from flask import (
     render_template,
-    request
+    request,
+    session
 )
+
+agent = SecureAgent()
 
 
 @app.route('/join')
@@ -16,3 +20,21 @@ def signup():
     """
     if request.method == 'GET':
         return render_template("auth/signup.html")
+    
+    # On POST requests #
+    info = {
+        "username": request.form.get('username'),
+        "email": request.form.get('email'),
+        "passwd": request.form.get('passwd'),
+        "name": request.form.get('name'),
+    }
+
+    status = agent.signup(info)
+    if status:
+        # Proceed to setting session variables,
+        # and redirect to dashboard or something.
+        session['logged_in'] = True
+        return "Your account has been created. Proceeding to dashboard."
+
+    return render_template("auth/signup.html",
+                            issue='Sorry, the username is not available')
