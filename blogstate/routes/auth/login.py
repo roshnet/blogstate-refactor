@@ -1,11 +1,12 @@
 from blogstate import app
-from blogstate.api import HOST
+from blogstate.api import SecureAgent
 from flask import (
     render_template,
-    request
+    request,
+    session
 )
-import os
-import requests
+
+agent = SecureAgent()
 
 
 @app.route('/signin')
@@ -21,11 +22,16 @@ def login():
         return render_template("auth/login.html")
 
     # On POST request #
-    payload = {
+    credentials = {
         "username": request.form.get('username'),
         "passwd": request.form.get('passwd')
     }
-    endpoint = os.path.join(HOST, 'login')
-    auth_status = requests.post(endpoint, json=payload)
+    status = agent.login(credentials)
+    if status:
+        # Proceed to setting session variables,
+        # and redirect to dashboard or something.
+        session['logged_in'] = True
+        return "You are logged in. Proceeding to dashboard."
 
-    return auth_status.content
+    return render_template('auth/login.html',
+                            issue='Incorrect username or password')
