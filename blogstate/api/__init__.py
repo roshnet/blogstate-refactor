@@ -2,13 +2,31 @@ from dotenv import load_dotenv
 import os
 import requests
 
-
 class SecureAgent(object):
     """Perform secure API calls for the application"""
 
     load_dotenv()
     HOST = os.getenv('API_HOST')
     KEY = os.getenv('API_KEY')
+
+
+    @classmethod
+    def secure_get(self, endpoint, params={}):
+        """
+        Performs GET calls to API with auth-header specified.
+
+        :param endpoint:    The endpoint to call
+        :param params:      (optional) <dict> for GET body
+
+        :return:            <dict> of response JSON
+        """
+        URL = os.path.join(self.HOST, endpoint)
+        return requests.get(URL,
+                             json=params,
+                             headers={
+                                "Authorization": self.KEY
+                             }).json()
+
 
     @classmethod
     def secure_post(self, endpoint, params):
@@ -83,4 +101,11 @@ class SecureAgent(object):
         status = self.secure_post('posts/new', fields)
         if status['status'] == 'pass':
             return True
+        return False
+
+    def fetch_info(self, username, params={}):
+        endpoint = 'fetch/{}'.format(username)
+        info = self.secure_get(endpoint)
+        if info['status'] == 'pass':
+            return info['userinfo']
         return False
