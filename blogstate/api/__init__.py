@@ -57,14 +57,14 @@ class SecureAgent(object):
             :key name:        (str) Full Name
 
         :return:
-            True, if user was created successfully.
+            JSON response <dict>, if user was created successfully.
             False, otherwise.
         """
         # TODO: Validate structure of incoming fields.
 
         status = self.secure_post('signup', fields)
         if status['status'] == 'pass':
-            return True
+            return status
         return False
 
     def publish(self, fields):
