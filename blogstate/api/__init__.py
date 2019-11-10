@@ -35,7 +35,7 @@ class SecureAgent(object):
         :param passwd:      Password
 
         :return:
-            True, if credentials match.
+            JSON response <dict>, if credentials match.
             False, otherwise.
         """
         # TODO: Validate structure of `creds`
@@ -44,7 +44,7 @@ class SecureAgent(object):
         # CAUTION: Do not use "/login" as argument for `secure_post()`,
         # as `os.path.join` discards host name in presence of '/'.
         if status['status'] == "pass":
-            return True
+            return status
         return False
 
     def signup(self, fields):
@@ -63,6 +63,24 @@ class SecureAgent(object):
         # TODO: Validate structure of incoming fields.
 
         status = self.secure_post('signup', fields)
+        if status['status'] == 'pass':
+            return True
+        return False
+
+    def publish(self, fields):
+        """
+        Create an entry in the posts' table with the information supplied.
+
+        :param fields:          A dict containing fields as follows:
+            :key author_uid:    (int) user_id
+            :key title:         (str) Post Title
+            :key body:          (str) Post Body
+
+        :return:
+            True, if post was successfully created.
+            False, otherwise.
+        """
+        status = self.secure_post('posts/new', fields)
         if status['status'] == 'pass':
             return True
         return False
