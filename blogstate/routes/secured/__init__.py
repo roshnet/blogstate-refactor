@@ -4,3 +4,4 @@ and authorisation.
 """
 
 import blogstate.routes.secured.dashboard
+import blogstate.routes.secured.new
