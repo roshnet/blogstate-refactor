@@ -34,6 +34,8 @@ def signup():
         # Proceed to setting session variables,
         # and redirect to dashboard or something.
         session['logged_in'] = True
+        session['username'] = request.form.get('username')
+        session['user_id'] = status['user_id']
         return "Your account has been created. Proceeding to dashboard."
 
     return render_template("auth/signup.html",
