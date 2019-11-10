@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block inside %}
+
+<section class="hero is-dark is-small is-bold">
+    <div class="hero-body has-text-left">
+        <div class="container">
+            <h1 class="title is-4 is-spaced">
+                BLOG <code class="has-text-info">STATE</code>
+            </h1>
+        </div>
+    </div>
+</section>
+
+
+<nav class="navbar is-info">
+	<div class="container">
+		<div class="navbar-brand">
+			<span class="navbar-burger burger" data-target="navMenu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
+		</div>
+		<div id="navMenu" class="navbar-menu">
+			<div class="navbar-end">
+				<a href="#" class="navbar-item">New</a>
+				<a href="#" class="navbar-item">Posts</a>
+				<a href="#" class="navbar-item">Feed</a>
+                <a href="#" class="navbar-item">Logout</a>
+			</div>
+		</div>
+	</div>
+</nav>
+
+{% block new %}{% endblock %}
+
+
+{% endblock %}
