@@ -1,0 +1,34 @@
+{% if user %}
+    {% extends "inside.html" %}
+{% else %}
+    {% extends "base.html" %}
+{% endif %}
+
+{% block viewpost %}
+
+<section class="section">
+    <div class="container">
+        <h2 class="subtitle is-4">Posted by {{ post.author.name }}</h2>
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title subtitle is-4 has-text-grey">
+                    {{ post.post.title }}
+                    &middot;
+                    <span class="subtitle is-6">
+                        <code>
+                            <a href="#" class="has-text-info">
+                                @{{ post.author.username }}
+                            </a>
+                        </code>
+                    </span>
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    {{ post.post.body }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
