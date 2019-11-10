@@ -1,0 +1,44 @@
+{% if user %}
+    {% extends "inside.html" %}
+{% else %}
+    {% extends "base.html" %}
+{% endif %}
+
+{% block posts %}
+
+<section class="section">
+    <div class="container">
+        {% for post in posts %}
+        <div class="card">
+            <a href="/{{ author }}/post/{{ post.url_id }}">
+                <header class="card-header">
+                    <p class="card-header-title subtitle is-4 has-text-grey">
+                        {{ post.title }}
+                        &middot;
+                        <span class="subtitle is-6">
+                            <code>
+                                <a href="#" class="has-text-info">
+                                    @{{ postauthor }}
+                                </a>
+                            </code>
+                        </span>
+                    </p>
+                </header>
+            </a>
+            <div class="card-content">
+                <div class="content">
+                    {{ post.body }}
+                </div>
+            </div>
+            <footer class="card-footer">
+                <a href="#" class="card-footer-item has-text-info">&starf; 46</a>
+                <a href="#" class="card-footer-item has-text-info">Comment</a>
+                <a href="#" class="card-footer-item has-text-info">Share</a>
+            </footer>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}
