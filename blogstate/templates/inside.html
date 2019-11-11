@@ -33,7 +33,7 @@
 			<div class="navbar-end">
 				<a href="{{ url_for('new') }}" class="navbar-item">Write &nearrow;</a>
 				<a href="/{{ user.username }}" class="navbar-item">Posts &vellip;</a>
-                <a href="#" class="navbar-item">Logout &RightTriangleEqual;</a>
+                <a href="{{ url_for('logout') }}" class="navbar-item">Logout &RightTriangleEqual;</a>
 			</div>
 		</div>
 	</div>
