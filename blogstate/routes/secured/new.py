@@ -12,10 +12,11 @@ agent = SecureAgent()
 @app.route('/new', methods=['GET', 'POST'])
 def new():
     if request.method == 'GET':
-        return render_template("members/new.html")
+        return render_template("members/new.html",
+                               user=session)
 
     status = agent.publish({
-        "author_uid": session['user_id'],       
+        "author_uid": session['user_id'],
         "title": request.form.get('title'),
         "body": request.form.get('body'),
     })
@@ -23,4 +24,4 @@ def new():
     if status:
         return f"Your post was published."
     return render_template("members/new.html",
-                            issue='Something was not right with your post.')
+                           issue='Something was not right with your post.')
