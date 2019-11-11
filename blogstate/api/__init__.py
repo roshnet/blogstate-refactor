@@ -116,7 +116,7 @@ class SecureAgent(object):
             return posts['posts']
 
     def fetch_post_by_id(self, username, post_url):
-        endpoint = '{}/post/{}'.format(username, post_url)
+        endpoint = 'posts/{}/{}'.format(username, post_url)
         post = self.secure_get(endpoint)
         if post['status'] == 'pass':
             return post
