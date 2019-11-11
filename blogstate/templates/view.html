@@ -15,14 +15,8 @@
             <header class="card-header">
                 <p class="card-header-title subtitle is-4 has-text-grey">
                     {{ post.post.title }}
-                    &middot;
-                    <span class="subtitle is-6">
-                        <code>
-                            <a href="#" class="has-text-info">
-                                @{{ post.author.username }}
-                            </a>
-                        </code>
-                    </span>
+                    &middot;&nbsp;
+                    <span class="subtitle is-6">{{ post.post.date }}</span>
                 </p>
             </header>
             <div class="card-content">
