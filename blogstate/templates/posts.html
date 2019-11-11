@@ -8,10 +8,13 @@
 
 <section class="section">
     <div class="container">
-        <p class="tags has-addons">
-            <span class="tag is-dark is-large">Posts</span>
-            <span class="tag is-link is-large">@{{ author }}</span>
-        </p>
+        <nav class="breadcrumb is-large">
+            <ul>
+                <li><a>BLOG</a></li>
+                <li><a>@{{ author }}</a></li>
+                <li class="is-active"><a>Roshan Sharma</a></li
+            </ul>
+        </nav>
         <hr>
         {% for post in posts %}
         <div class="card">
