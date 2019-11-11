@@ -1,0 +1,39 @@
+{% extends "inside.html" %}
+{% block dashboard %}
+
+<section class="section">
+    <div class="container box">
+        <nav class="breadcrumb is-medium">
+            <ul>
+                <li><a>BlogState</a></li>
+                <li class="is-active"><a>Dashboard</a></li>
+            </ul>
+        </nav>
+        <hr>
+        <div class="section">
+            <p class="subtitle is-5">
+                Hi, <code class="has-text-link">@{{ user.username }}!</code>
+                Here are your posts.
+            </p>
+
+            <nav class="panel is-link">
+                <p class="panel-heading">Your Posts ({{ user.stats.posts_count }})</p>
+                <div class="columns">
+                    {% for title in titles %}
+                    <div class="column">
+                        <header class="card-headers">
+                            <p class="card-header-title is-4">
+                                <a href="/{{ user.username}}/post/{{ title.url }}">
+                                    {{ title.title }}
+                                </a>
+                            </p>
+                        </header>
+                    </div>
+                    {% endfor %}
+                </div>
+            </nav>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
