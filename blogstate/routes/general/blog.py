@@ -12,7 +12,9 @@ agent = SecureAgent()
 def blog(username):
     """Fetch and display publically visible blog posts by an author"""
     posts = agent.fetch_posts_by_author(username)
-    return render_template("posts.html",
-                           user=session,
-                           posts=posts,
-                           author=username)
+    if posts:
+        return render_template("posts.html",
+                               user=session,
+                               posts=posts,
+                               author=username)
+    return render_template("404.html")
