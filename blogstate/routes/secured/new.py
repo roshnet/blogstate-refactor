@@ -11,6 +11,11 @@ agent = SecureAgent()
 
 @app.route('/new/', methods=['GET', 'POST'])
 def new():
+    # Check authentication
+    if 'username' not in session.keys():
+        return redirect('/login')
+
+    # Clear to proceed
     if request.method == 'GET':
         return render_template("members/new.html",
                                user=session)

@@ -1,6 +1,6 @@
 from blogstate import app
 from blogstate.api import SecureAgent
-from flask import render_template
+from flask import render_template, session
 
 agent = SecureAgent()
 
@@ -9,4 +9,5 @@ agent = SecureAgent()
 def get_post(username, post_url):
     post = agent.fetch_post_by_id(username, post_url)
     return render_template("view.html",
+                           user=session,
                            post=post)
