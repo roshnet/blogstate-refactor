@@ -13,7 +13,7 @@ from flask import (
 agent = SecureAgent()
 
 
-@app.route('/<username>/dashboard')
+@app.route('/<username>/dashboard/')
 def dashboard(username):
     # Check authentication
     if 'username' not in session.keys():

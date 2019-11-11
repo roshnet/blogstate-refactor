@@ -9,8 +9,8 @@ from flask import (
 agent = SecureAgent()
 
 
-@app.route('/join')
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/join/')
+@app.route('/signup/', methods=['GET', 'POST'])
 def signup():
     """
     Handler logic for the `/signup` route.
