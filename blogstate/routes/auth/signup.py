@@ -20,7 +20,7 @@ def signup():
     """
     if request.method == 'GET':
         return render_template("auth/signup.html")
-    
+
     # On POST requests #
     info = {
         "username": request.form.get('username'),
@@ -40,4 +40,4 @@ def signup():
         return "Your account has been created. Proceeding to dashboard."
 
     return render_template("auth/signup.html",
-                            issue='Sorry, the username is not available')
+                           issue='Sorry, the username is not available')
