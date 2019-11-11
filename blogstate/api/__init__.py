@@ -110,7 +110,7 @@ class SecureAgent(object):
             return info['userinfo']
         return False
 
-    def fetch_posts(self, username, params={}):
+    def fetch_posts_by_author(self, username, params={}):
         endpoint = 'posts/{}'.format(username)
         posts = self.secure_get(endpoint)
         if posts['status'] == 'pass':
