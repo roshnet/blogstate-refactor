@@ -2,8 +2,8 @@ from blogstate import app
 from blogstate.api import SecureAgent
 from flask import (
     render_template,
-    request,
-    session
+    redirect, request,
+    session, url_for
 )
 
 agent = SecureAgent()
@@ -33,7 +33,7 @@ def login():
         session['logged_in'] = True
         session['username'] = request.form.get('username')
         session['user_id'] = status['user_id']
-        return "You are logged in. Proceeding to dashboard."
+        return redirect(url_for('dashboard', username=session['username']))
 
     return render_template('auth/login.html',
                            issue='Incorrect username or password')

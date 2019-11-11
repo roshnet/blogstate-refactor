@@ -2,8 +2,8 @@ from blogstate import app
 from blogstate.api import SecureAgent
 from flask import (
     render_template,
-    request,
-    session
+    redirect, request,
+    session, url_for
 )
 
 agent = SecureAgent()
@@ -37,7 +37,7 @@ def signup():
         session['username'] = request.form.get('username')
         session['name'] = request.form.get('name')
         session['user_id'] = status['user_id']
-        return "Your account has been created. Proceeding to dashboard."
+        return redirect(url_for('dashboard', username=session['username']))
 
     return render_template("auth/signup.html",
                            issue='Sorry, the username is not available')
