@@ -36,4 +36,4 @@ def login():
         return "You are logged in. Proceeding to dashboard."
 
     return render_template('auth/login.html',
-                            issue='Incorrect username or password')
+                           issue='Incorrect username or password')
