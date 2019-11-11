@@ -8,20 +8,18 @@
 
 <section class="section">
     <div class="container">
+        <p class="tags has-addons">
+            <span class="tag is-dark is-large">Posts</span>
+            <span class="tag is-link is-large">@{{ author }}</span>
+        </p>
+        <hr>
         {% for post in posts %}
         <div class="card">
-            <a href="/{{ author }}/post/{{ post.url_id }}">
+            <a>
                 <header class="card-header">
                     <p class="card-header-title subtitle is-4 has-text-grey">
                         {{ post.title }}
                         &middot;
-                        <span class="subtitle is-6">
-                            <code>
-                                <a href="#" class="has-text-info">
-                                    @{{ postauthor }}
-                                </a>
-                            </code>
-                        </span>
                     </p>
                 </header>
             </a>
@@ -31,9 +29,9 @@
                 </div>
             </div>
             <footer class="card-footer">
-                <a href="#" class="card-footer-item has-text-info">&starf; 46</a>
-                <a href="#" class="card-footer-item has-text-info">Comment</a>
-                <a href="#" class="card-footer-item has-text-info">Share</a>
+                <a href="/{{ author }}/post/{{ post.url_id }}"
+                   class="card-footer-item has-text-info">Read</a>
+                <a href="#" class="card-footer-item has-text-info">Copy Link</a>
             </footer>
         </div>
         {% endfor %}
