@@ -1,16 +1,19 @@
-from dotenv import load_dotenv
 import os
+import inspect
 import requests
 
 
 class SecureAgent(object):
     """Perform secure API calls for the application"""
 
-    load_dotenv()
-    HOST = os.getenv('API_HOST')
-    KEY = os.getenv('API_KEY')
+    def __init__(self, envfile_name='.env'):
+        this_module = inspect.getfile(inspect.currentframe())
+        this_dir = os.path.dirname(this_module)
+        envfile_path = os.path.join(this_dir, envfile_name)
+        with open(envfile_path) as fp:
+            self.HOST = fp.readline().rstrip("\n")
+            self.KEY = fp.readline().rstrip("\n")
 
-    @classmethod
     def secure_get(self, endpoint, params={}):
         """
         Performs GET calls to API with auth-header specified.
@@ -27,7 +30,6 @@ class SecureAgent(object):
                                "Authorization": self.KEY
                             }).json()
 
-    @classmethod
     def secure_post(self, endpoint, params):
         """
         Performs POST calls to API with auth-header specified.
