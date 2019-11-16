@@ -4,18 +4,16 @@
     {% extends "base.html" %}
 {% endif %}
 
-{% block error_404 %}
+{% block error_403 %}
 
 <section class="section" style="margin-top: 10%; margin-bottom: 15%;">
 	<div class="container">
 		<section class="hero has-text-right is-dark is-bold">
 			<section class="hero-body">
 		        <p class="title has-text-info is-spaced">
-		        	Cannot find what you're looking for :(
-		        </p>
-		        <p class="subtitle has-text-warning">
-		        	Please try again.
-		        </p>
+                    Hmm, you don't have sufficient permissions to view
+                    this page :(
+		        </p>	
 			</section>
 		</section>
 	</div>
