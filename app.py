@@ -1,1 +1,1 @@
-from blogstate import app
+from blogstate import app    # noqa
