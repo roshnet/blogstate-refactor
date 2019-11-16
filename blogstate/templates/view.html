@@ -9,7 +9,10 @@
 <section class="section">
     <div class="container">
         <h2 class="subtitle is-4">
-            Post by {{ post.author.name }}
+            Post by
+            <a href="/{{ post.author.username }}">
+                {{ post.author.name }}
+            </a>
         </h2>
         <div class="card">
             <header class="card-header">
