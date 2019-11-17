@@ -26,6 +26,7 @@ def dashboard(username):
     # NOTE: Possible use-case of GraphQL
     user = agent.fetch_info(username)
     titles = agent.fetch_post_titles(username)
-    return render_template("members/dashboard.html",
-                           user=user,
-                           titles=titles)
+    if user and titles:
+        return render_template("members/dashboard.html",
+                               user=user,
+                               titles=titles)
