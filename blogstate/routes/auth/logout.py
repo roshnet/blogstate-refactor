@@ -8,5 +8,7 @@ from flask import (
 @app.route('/logout/')
 def logout():
     if 'logged_in' in session.keys():
-        session['logged_in'] = None
+        session.pop('logged_in')
+    if 'username' in session.keys():
+        session.pop('username')
     return redirect('/login')
