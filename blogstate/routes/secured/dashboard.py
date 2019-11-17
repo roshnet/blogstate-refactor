@@ -5,9 +5,8 @@ Configures everything for the dashboard.
 from blogstate import app
 from blogstate.api import SecureAgent
 from flask import (
-    render_template,
-    redirect,
-    session
+    redirect, render_template,
+    session, url_for
 )
 
 agent = SecureAgent()
@@ -26,7 +25,9 @@ def dashboard(username):
     # NOTE: Possible use-case of GraphQL
     user = agent.fetch_info(username)
     titles = agent.fetch_post_titles(username)
-    if user and titles:
+    if user and titles is not False:
+        # Explicitly checking `titles` as a blank list evaluates to False
         return render_template("members/dashboard.html",
                                user=user,
                                titles=titles)
+    return redirect(url_for('blog', username=session['username']))

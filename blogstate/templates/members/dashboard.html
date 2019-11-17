@@ -11,15 +11,15 @@
         </nav>
         <hr>
         <div class="section">
+        {% if user.stats.posts_count > 0 %}
             <p class="subtitle is-5">
-                Hi, <code class="has-text-link">@{{ user.username }}!</code>
+                Nice, <code class="has-text-link">@{{ user.username }}!</code>
                 Here are your posts.
             </p>
-
             <nav class="panel is-link">
                 <p class="panel-heading">Your Posts ({{ user.stats.posts_count }})</p>
                 <div class="columns">
-                    {% for title in titles %}
+                {% for title in titles %}
                     <div class="column">
                         <header class="card-headers">
                             <p class="card-header-title is-4">
@@ -29,9 +29,37 @@
                             </p>
                         </header>
                     </div>
-                    {% endfor %}
+                {% endfor %}
                 </div>
             </nav>
+        {% else %}
+            <p class="subtitle is-5">
+                Hi <code class="has-text-link">@{{ user.username }}</code>
+                - Welcome to BlogState!
+            </p>
+            <p>
+                Go ahead, start a blog.
+                Once you start writing, you're good to go!
+            </p>
+            <br><br>
+            <nav class="panel is-link">
+                <div class="panel-heading">
+                    <p class="subtitle is-5 has-text-white">
+                        Posts you write show up here
+                    </p>
+                </div>
+                <br><br>
+                <div class="columns">
+                    <div class="column has-text-centered">
+                        <a href="{{ url_for('new')}}">
+                            <button class="button is-primary">
+                                Write a new one!
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        {% endif %}
         </div>
     </div>
 </section>
