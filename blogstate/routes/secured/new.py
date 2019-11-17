@@ -27,6 +27,6 @@ def new():
     })
 
     if status:
-        return redirect(url_for('dashboard', username=session['username']))
+        return redirect(url_for('blog', username=session['username']))
     return render_template("members/new.html",
                            issue='Something was not right with your post.')
