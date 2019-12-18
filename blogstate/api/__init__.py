@@ -92,8 +92,9 @@ class SecureAgent(object):
 
         :param fields:          A dict containing fields as follows:
             :key author_uid:    (int) user_id
-            :key title:         (str) Post Title
-            :key body:          (str) Post Body
+            :key title:         (str) Title of the post
+            :key body:          (str) Body of the post
+            :key preview_text:  (str) Preview text for the post
 
         :return:
             True, if post was successfully created.

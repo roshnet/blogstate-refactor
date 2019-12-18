@@ -1,13 +1,16 @@
 {% extends "inside.html" %}
 {% block new %}
-
 <section class="section">
     <div class="container box">
         <div class="columns">
             <div class="column is-4">
-                <h2 class="subtitle is-4">New Post</h2>
+                <nav class="breadcrumb is-medium">
+                    <ul>
+                        <li><a>BlogState</a></li>
+                        <li class="is-active"><a class="has-text-grey">Write</a></li>
+                    </ul>
+                </nav>
             </div>
-
             <div class="column is-8">
                 {% if issue %}
                 <div class="field has-text-centered">
@@ -15,17 +18,23 @@
                 </div>
                 {% endif %}
                 <form id="add-post" class="form" method="POST" action="{{ url_for('new') }}">
-                    <label class="label" for="title">Title</label>
+                    <label class="label subtitle is-7 has-text-info" for="title">TITLE</label>
                     <input
                       class="input"
                       type="text"
                       name="title"
-                      placeholder="Great titles are less than 50 characters">
+                      placeholder="Great titles are less than 50 characters!">
                     <br><br>
                 <textarea
                   type="text" rows="12" class="textarea is-fluid"
                   placeholder="Start composing..."
                   name="body"></textarea>
+                  <br>
+                <span class="subtitle is-7 has-text-info">DESCRIPTION</span>
+                <textarea
+                  type="text" rows="2" class="textarea is-fluid"
+                  placeholder="A nice, short description or summary..."
+                  name="preview-text"></textarea>
                 </form>
             </div>
         </div>
@@ -42,13 +51,10 @@
             </span>
         </div>
     </div>
-
 </section>
 
 <script src="/static/js/nicEdit-latest.js"></script>
 <script type="text/javascript">
     bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
 </script>
-
-
 {% endblock %}

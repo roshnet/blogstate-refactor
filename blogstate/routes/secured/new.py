@@ -24,6 +24,7 @@ def new():
         "author_uid": session['user_id'],
         "title": request.form.get('title'),
         "body": request.form.get('body'),
+        "preview_text": request.form.get('preview-text')
     })
 
     if status:
