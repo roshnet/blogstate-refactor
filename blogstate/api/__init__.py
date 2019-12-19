@@ -106,28 +106,28 @@ class SecureAgent(object):
         return False
 
     def fetch_user_info(self, username, params={}):
-        endpoint = 'fetch/{}'.format(username)
+        endpoint = 'users/{}'.format(username)
         info = self.secure_get(endpoint)
         if info['status'] == 'pass':
-            return info['userinfo']
+            return info['result']
         return False
 
     def fetch_posts_by_author(self, username, params={}):
         endpoint = 'posts/{}'.format(username)
         posts = self.secure_get(endpoint)
         if posts['status'] == 'pass':
-            return posts['posts']
+            return posts['result']
 
     def fetch_post_by_id(self, username, post_url):
         endpoint = 'posts/{}/{}'.format(username, post_url)
         post = self.secure_get(endpoint)
         if post['status'] == 'pass':
-            return post
+            return post['result']
         return False
 
     def fetch_post_titles(self, username):
         endpoint = 'posts/titles/{}'.format(username)
         titles = self.secure_get(endpoint)
         if titles['status'] == 'pass':
-            return titles['titles']
+            return titles['result']
         return False

@@ -16,7 +16,7 @@ agent = SecureAgent()
 def dashboard(username):
     # Check authentication
     if 'username' not in session.keys():
-        return redirect('/login')
+        return redirect(url_for('login'))
 
     # Check authorization
     if not username == session['username']:
