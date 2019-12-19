@@ -105,7 +105,7 @@ class SecureAgent(object):
             return True
         return False
 
-    def fetch_info(self, username, params={}):
+    def fetch_user_info(self, username, params={}):
         endpoint = 'fetch/{}'.format(username)
         info = self.secure_get(endpoint)
         if info['status'] == 'pass':
