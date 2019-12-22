@@ -28,7 +28,7 @@
             </a>
             <div class="card-content">
                 <div class="content">
-                    {{ post.preview_text }}
+                    {{ post.preview_text | safe }}
                 </div>
             </div>
             <footer class="card-footer">
@@ -40,6 +40,4 @@
         {% endfor %}
     </div>
 </section>
-
-
 {% endblock %}

@@ -17,14 +17,14 @@
         <div class="card">
             <header class="card-header">
                 <p class="card-header-title subtitle is-4 has-text-grey">
-                    {{ post.title }}
+                    {{ post.title | safe }}
                     &middot;&nbsp;
                     <span class="subtitle is-6">{{ post.date }}</span>
                 </p>
             </header>
             <div class="card-content">
                 <div class="content">
-                    {{ post.body }}
+                    {{ post.body | safe }}
                 </div>
             </div>
         </div>
