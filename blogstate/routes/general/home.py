@@ -23,4 +23,4 @@ def home():
                 return render_template("members/dashboard.html",
                                        user=user,
                                        posts=posts)
-    return render_template("home.html")
+    return render_template("pre/home.html")

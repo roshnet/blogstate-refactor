@@ -19,7 +19,7 @@ def signup():
     On POST, performs API call to create user with specified fields.
     """
     if request.method == 'GET':
-        return render_template("auth/signup.html")
+        return render_template("pre/signup.html")
 
     # On POST requests #
     info = {
@@ -39,5 +39,5 @@ def signup():
         session['user_id'] = status['user_id']
         return redirect(url_for('home'))
 
-    return render_template("auth/signup.html",
+    return render_template("pre/signup.html",
                            issue='Sorry, the username is not available')

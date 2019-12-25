@@ -19,7 +19,7 @@ def login():
     On POST, fetches validation status and user information.
     """
     if request.method == 'GET':
-        return render_template("auth/login.html")
+        return render_template("pre/login.html")
 
     # On POST request #
     credentials = {
@@ -35,5 +35,5 @@ def login():
         session['user_id'] = status['user_id']
         return redirect(url_for('home'))
 
-    return render_template('auth/login.html',
+    return render_template('pre/login.html',
                            issue='Incorrect username or password')
