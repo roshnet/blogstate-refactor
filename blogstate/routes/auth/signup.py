@@ -37,7 +37,7 @@ def signup():
         session['username'] = request.form.get('username')
         session['name'] = request.form.get('name')
         session['user_id'] = status['user_id']
-        return redirect(url_for('dashboard', username=session['username']))
+        return redirect(url_for('home'))
 
     return render_template("auth/signup.html",
                            issue='Sorry, the username is not available')
