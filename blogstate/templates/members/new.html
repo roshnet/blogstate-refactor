@@ -33,28 +33,33 @@
                 <span class="subtitle is-7 has-text-info">DESCRIPTION</span>
                 <textarea
                   type="text" rows="2" class="textarea is-fluid"
-                  placeholder="A nice, short description or summary..."
+                  placeholder="Something for a preview of your blog post..."
                   name="preview-text"></textarea>
                 </form>
             </div>
         </div>
         <div class="has-text-centered">
-            <button class="button is-info" form="add-post" type="submit">
-                Publish
-            </button>
+            <input type="submit" class="button is-info"
+                   name="action" form="add-post"
+                   value="Publish">
         </div>
         <div class="has-text-left">
             <br>
             <span class="subtitle is-7 has-text-danger">
-                Published posts cannot be edited. This feature will be removed in a newer version,
-                along with this message.
+                Published posts cannot be edited. This feature will be
+                removed in a newer version, along with this message.
             </span>
         </div>
     </div>
 </section>
 
-<script src="/static/js/nicEdit-latest.js"></script>
+<script src="/static/js/simplemde.min.js"></script>
+<link rel="stylesheet" href="/static/css/simplemde.min.css">
 <script type="text/javascript">
-    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+var simplemde = new SimpleMDE({
+    autoDownloadFontAwesome: true,
+    hideIcons: ["image", "side-by-side"],
+    indentWithTabs: false,
+})
 </script>
 {% endblock %}

@@ -5,7 +5,9 @@
 {% endif %}
 
 {% block viewpost %}
-
+<div style="display: none;">
+    <textarea></textarea>
+</div>
 <section class="section">
     <div class="container">
         <h2 class="subtitle is-4">
@@ -23,12 +25,11 @@
                 </p>
             </header>
             <div class="card-content">
-                <div class="content">
+                <div id="post-body" class="content">
                     {{ post.body | safe }}
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 {% endblock %}
