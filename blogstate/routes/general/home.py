@@ -16,11 +16,11 @@ def home():
             # User is authenticated -> render dashboard
             username = session['username']
             user = agent.fetch_user_info(username)
-            titles = agent.fetch_post_titles(username)
-            if user and titles is not False:
+            posts = agent.fetch_posts_by_author(username)
+            if user and posts is not False:
             # Explicitly checking `titles` as a blank list
             # evaluates to False
                 return render_template("members/dashboard.html",
                                        user=user,
-                                       titles=titles)
+                                       posts=posts)
     return render_template("home.html")

@@ -18,18 +18,18 @@
             </p>
             <nav class="panel is-link">
                 <p class="panel-heading">Your Posts ({{ user.stats.posts_count }})</p>
-                <div class="columns">
-                {% for title in titles %}
-                    <div class="column">
-                        <header class="card-headers">
-                            <p class="card-header-title is-4">
-                                <a href="/{{ user.username}}/post/{{ title.url }}">
-                                    {{ title.title }}
-                                </a>
+                <div class="tile is-ancestor">
+                    <div class="tile is-vertical is-parent">
+                    {% for post in posts %}
+                        <div class="tile is-child box">
+                            <p class="subtitle is-4">
+                                <a href="/{{ user.username }}/post/{{ post.url_id }}">{{ post.title }}</a>
                             </p>
-                        </header>
+                            <p class="subtitle is-6">{{ post.preview_text }}</p>
+                        </div>
+                        <br>
+                    {% endfor %}
                     </div>
-                {% endfor %}
                 </div>
             </nav>
         {% else %}
