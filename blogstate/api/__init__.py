@@ -46,6 +46,22 @@ class SecureAgent(object):
                                 "Authorization": self.KEY
                              }).json()
 
+    def secure_put(self, endpoint, params={}):
+        """
+        Performs PUT calls to API with auth-header specified.
+
+        :param endpoint:    The endpoint to call
+        :param params:      (optional) <dict> for PUT body
+
+        :return:            <str> status 
+        """
+        URL = os.path.join(self.HOST, endpoint)
+        return requests.put(URL,
+                            json=params,
+                            headers={
+                               "Authorization": self.KEY
+                            }).json()
+
     def login(self, creds):
         """
         Create a login attempt.
@@ -125,9 +141,8 @@ class SecureAgent(object):
             return post['result']
         return False
 
-    def fetch_post_titles(self, username):
-        endpoint = 'posts/titles/{}'.format(username)
-        titles = self.secure_get(endpoint)
-        if titles['status'] == 'pass':
-            return titles['result']
-        return False
+    def update_post_by_id(self, username, post_idf, fields):
+        endpoint = 'posts/edit?a={}&p={}'.format(username, post_idf)
+        status = self.secure_put(endpoint, fields)
+        if status['status'] == 'pass':
+            return True

@@ -1,0 +1,58 @@
+{% extends "inside.html" %}
+{% block edit %}
+<section class="section">
+    <div class="container box">
+        <p class="title is-3 has-text-grey">
+            Edit Mode<br>
+            <span class="subtitle is-6">Make changes to your post here. Hit "Publish" when done.</span>
+        </p>
+        <div class="columns">
+            <div class="column">
+                {% if issue %}
+                <div class="field has-text-centered">
+                    <p class="button is-danger is-small is-outlined">{{ issue }}</p>
+                </div>
+                {% endif %}
+                <form id="edit-post" class="form" method="POST" action="{{ url_for('edit') }}">
+                    <input type="hidden" name="idf" value="{{ old_post.idf }}">
+                    <label class="label subtitle is-7 has-text-info" for="title">TITLE</label>
+                    <input
+                      class="input"
+                      type="text"
+                      name="title"
+                      {%if old_post %}value="{{ old_post.title }}"{% endif %}>
+                      <br><br>
+                <textarea
+                  type="text" rows="12" class="textarea is-fluid"
+                  name="body">
+                  {% if old_post %}
+                    {{ old_post.body | safe }}
+                  {% endif %}
+                </textarea>
+                  <br>
+                <span class="subtitle is-7 has-text-info">DESCRIPTION</span>
+                <textarea
+                  type="text" rows="2" class="textarea is-fluid"
+                  placeholder="Something for a preview of your blog post..."
+                  name="preview-text">{% if old_post %}{{old_post.preview_text}}{% endif %}</textarea>
+                </form>
+            </div>
+        </div>
+        <div class="has-text-centered">
+            <input type="submit" class="button is-success"
+                   name="action" form="edit-post"
+                   value="Update Post">
+        </div>
+    </div>
+</section>
+
+<script src="/static/js/simplemde.min.js"></script>
+<link rel="stylesheet" href="/static/css/simplemde.min.css">
+<script type="text/javascript">
+var simplemde = new SimpleMDE({
+    autoDownloadFontAwesome: true,
+    hideIcons: ["image", "side-by-side"],
+    indentWithTabs: false,
+})
+</script>
+{% endblock %}

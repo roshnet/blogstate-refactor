@@ -29,6 +29,12 @@
                     {{ post.body | safe }}
                 </div>
             </div>
+            <footer class="card-footer">
+                <a id="add-comment" class="card-footer-item">Add Comment</a>
+                {% if user %}{% if user.logged_in %}{% if user.username == post.author.username %}
+                    <a href="/edit/?author={{ post.author.username }}&post={{ post.idf }}" id="edit-post" class="card-footer-item">Edit Post</a>
+                {% endif %}{% endif %}{% endif %}
+            </footer>
         </div>
     </div>
 </section>
