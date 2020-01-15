@@ -30,10 +30,13 @@
                 </div>
             </div>
             <footer class="card-footer">
+            {% if user %}{% if user.logged_in %}
                 <a id="add-comment" class="card-footer-item">Add Comment</a>
-                {% if user %}{% if user.logged_in %}{% if user.username == post.author.username %}
-                    <a href="/edit/?author={{ post.author.username }}&post={{ post.idf }}" id="edit-post" class="card-footer-item">Edit Post</a>
-                {% endif %}{% endif %}{% endif %}
+                {% if user.username == post.author.username %}
+                <a href="/edit/?author={{ post.author.username }}&post={{ post.idf }}" id="edit-post" class="card-footer-item">Edit Post</a>
+                {% endif %}{% else %}
+                <a href="{{ url_for('login') }}" id="add-comment" class="card-footer-item has-text-grey">Please log in to comment.</a>
+                {% endif %}{% endif %}
             </footer>
         </div>
     </div>
