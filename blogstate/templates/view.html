@@ -20,7 +20,7 @@
             <header class="card-header">
                 <p class="card-header-title subtitle is-4 has-text-grey">
                     {{ post.title | safe }}
-                    &middot;&nbsp;
+                    &bull;&nbsp;
                     <span class="subtitle is-6">{{ post.date }}</span>
                 </p>
             </header>
@@ -38,6 +38,7 @@
                 <a href="{{ url_for('login') }}" id="add-comment" class="card-footer-item has-text-grey">Please log in to comment.</a>
                 {% endif %}{% endif %}
             </footer>
+            {% include "components/viewcomments.html" %}
         </div>
     </div>
 </section>
